@@ -29,7 +29,12 @@ class Moon < Body
     # how many days it takes for the moon to orbit its planet
     @month = month
     # which planet they orbit
-    @planet = planet
+    if planet.class == Planet
+      @planet = planet
+    else
+      puts "You don't have a planet to orbit. First create the planet."
+      return "You don't have a planet to orbit. First create the planet."
+    end
   end
 
 end

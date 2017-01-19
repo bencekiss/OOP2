@@ -3,7 +3,12 @@ require './body.rb'
 class System
   attr_reader :bodies
 
-  @@total = 0
+  @@grand_mass= 0
+  @@total =0
+
+  def self.grand_mass
+    @@grand_mass
+  end
 
   def initialize
     @bodies = []
@@ -12,6 +17,7 @@ class System
   def add(b)
     if @bodies.empty?
       @bodies << b
+      @@grand_mass += b.mass
     else
       ispartof = false
       @bodies.each do |body|
@@ -25,6 +31,7 @@ class System
       end
       if ispartof
         @bodies << b
+        @@grand_mass += b.mass
       end
     end
     @bodies

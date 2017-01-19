@@ -8,11 +8,13 @@ require './planets.rb'
 sun = Star.new("Sun", 10, "G2 V")
 # 1989 * 10**27 kg
 
+moon = Moon.new("Moon", 0.5, 27.3, sun)
+# 7342 * 10**19 kg
+
 earth = Planet.new("Earth", 3, 24, 365)
 # 5972.2 * 10**21 kg
 
-moon = Moon.new("Moon", 0.5, 27.3, earth)
-# 7342 * 10**19 kg
+
 
 mars = Planet.new("Mars", 2, 24.63, 686)
 # 6417 * 10**20 kg
@@ -45,3 +47,21 @@ mw.total_mass # => 31.5
 
 Planet.all(mw)
 Moon.all(mw)
+
+alpha_centauri = System.new()
+alpha_centauri.add(sun)
+sun2 = Star.new("Sun2", 10, "G78")
+jupiter = Planet.new("Jupiter", 9, 44, 887)
+grand_pluto = Planet.new("Plutooo", 7, 30, 495)
+
+moon2 = Moon.new("Moon2", 2, 33.5, grand_pluto)
+earth2 = Planet.new("Earth2", 4.5, 24.5, 370)
+alpha_centauri.add(sun2)
+alpha_centauri.add(jupiter)
+alpha_centauri.total_mass # => 29
+alpha_centauri.add(grand_pluto)
+alpha_centauri.add(moon2)
+alpha_centauri.add(earth2)
+
+alpha_centauri.total_mass # => 42.5
+puts "All the mass in the system is #{ System.grand_mass } " # => 74
